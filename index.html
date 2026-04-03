@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Esha Dillikar – AI/ML Engineer & Published Researcher. MCA student at PES University. Open to AI/ML and software roles." />
+<title>Esha Dillikar – AI/ML Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:#0a0a0f;--bg2:#111118;--bg3:#1a1a26;--surface:#1e1e2e;
+    --accent:#7c6ff7;--accent2:#a855f7;--accent3:#22d3ee;--text:#f1f0f9;--muted:#8b8ba8;
+    --border:rgba(124,111,247,0.18);--green:#4ade80;--amber:#fbbf24;--gold:#f59e0b;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden; line-height:1.6; }
+
+  nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:1rem 2.5rem; background:rgba(10,10,15,0.9); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); }
+  .nav-logo { font-family:'Syne',sans-serif; font-weight:800; font-size:1.1rem; background:linear-gradient(135deg,var(--accent),var(--accent3)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .nav-links { display:flex; gap:2rem; list-style:none; }
+  .nav-links a { color:var(--muted); text-decoration:none; font-size:0.82rem; font-weight:500; letter-spacing:0.05em; text-transform:uppercase; transition:color 0.2s; }
+  .nav-links a:hover { color:var(--accent); }
+
+  .hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:6rem 2.5rem 4rem; position:relative; overflow:hidden; }
+  .hero::before { content:''; position:absolute; top:-200px; right:-200px; width:600px; height:600px; background:radial-gradient(circle,rgba(124,111,247,0.12) 0%,transparent 70%); pointer-events:none; }
+  .hero::after { content:''; position:absolute; bottom:-100px; left:30%; width:400px; height:400px; background:radial-gradient(circle,rgba(34,211,238,0.07) 0%,transparent 70%); pointer-events:none; }
+  .hero-tag { display:inline-flex; align-items:center; gap:0.5rem; background:rgba(124,111,247,0.1); border:1px solid rgba(124,111,247,0.3); color:var(--accent); font-size:0.78rem; font-weight:500; padding:0.35rem 1rem; border-radius:100px; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:1.5rem; }
+  .hero-tag::before { content:''; width:6px; height:6px; background:var(--green); border-radius:50%; }
+  .hero-name { font-family:'Syne',sans-serif; font-size:clamp(3rem,8vw,5.5rem); font-weight:800; line-height:1; letter-spacing:-0.02em; margin-bottom:0.5rem; }
+  .hero-name span { background:linear-gradient(135deg,#7c6ff7 0%,#a855f7 50%,#22d3ee 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .hero-tagline { font-size:clamp(1.1rem,2.5vw,1.5rem); color:var(--muted); font-weight:300; font-style:italic; margin-bottom:1.2rem; max-width:600px; }
+  .hero-tagline strong { color:var(--accent3); font-weight:500; font-style:normal; }
+  .hero-sub { font-size:1rem; color:var(--muted); max-width:520px; line-height:1.7; margin-bottom:2.5rem; }
+  .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
+  .btn-primary { display:inline-flex; align-items:center; gap:0.5rem; background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; font-family:'DM Sans',sans-serif; font-size:0.9rem; font-weight:500; padding:0.75rem 1.75rem; border-radius:8px; border:none; cursor:pointer; text-decoration:none; transition:opacity 0.2s,transform 0.2s; }
+  .btn-primary:hover { opacity:0.88; transform:translateY(-1px); }
+  .btn-ghost { display:inline-flex; align-items:center; gap:0.5rem; background:transparent; color:var(--text); font-family:'DM Sans',sans-serif; font-size:0.9rem; font-weight:500; padding:0.75rem 1.75rem; border-radius:8px; border:1px solid var(--border); cursor:pointer; text-decoration:none; transition:border-color 0.2s,color 0.2s; }
+  .btn-ghost:hover { border-color:var(--accent); color:var(--accent); }
+  .paper-banner { margin-top:2rem; display:inline-flex; align-items:flex-start; gap:1rem; background:linear-gradient(135deg,rgba(245,158,11,0.08),rgba(124,111,247,0.08)); border:1px solid rgba(245,158,11,0.35); border-radius:14px; padding:1rem 1.5rem; max-width:620px; }
+  .paper-banner-icon { font-size:24px; flex-shrink:0; margin-top:2px; }
+  .paper-banner-label { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold); font-weight:600; margin-bottom:0.2rem; }
+  .paper-banner-title { font-size:0.88rem; font-weight:500; color:var(--text); line-height:1.4; }
+  .paper-banner-meta { font-size:0.75rem; color:var(--muted); margin-top:0.25rem; }
+  .hero-stats { display:flex; gap:2.5rem; margin-top:3rem; border-top:1px solid var(--border); padding-top:2rem; flex-wrap:wrap; }
+  .stat-item { display:flex; flex-direction:column; gap:0.2rem; }
+  .stat-num { font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; color:var(--text); }
+  .stat-num span { color:var(--accent); }
+  .stat-label { font-size:0.75rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; }
+
+  section { padding:5rem 2.5rem; max-width:1100px; margin:0 auto; }
+  .section-eyebrow { font-size:0.72rem; font-weight:500; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent); margin-bottom:0.6rem; }
+  .section-title { font-family:'Syne',sans-serif; font-size:clamp(1.8rem,3.5vw,2.4rem); font-weight:800; line-height:1.1; margin-bottom:0.8rem; letter-spacing:-0.02em; }
+  .section-desc { color:var(--muted); max-width:560px; line-height:1.7; margin-bottom:2.5rem; }
+  .full-divider { width:100%; height:1px; background:var(--border); max-width:1100px; margin:0 auto; }
+
+  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+  .about-bio { font-size:1.02rem; line-height:1.8; color:var(--muted); }
+  .about-bio strong { color:var(--text); font-weight:500; }
+  .about-bio p+p { margin-top:1rem; }
+  .about-highlights { display:flex; flex-direction:column; gap:1rem; }
+  .highlight-item { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.25rem 1.5rem; border-left:3px solid var(--accent); }
+  .highlight-item h4 { font-size:0.82rem; font-weight:500; color:var(--accent3); margin-bottom:0.25rem; }
+  .highlight-item p { font-size:0.85rem; color:var(--muted); }
+
+  .skills-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.25rem; }
+  .skill-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:1.5rem; transition:border-color 0.2s,transform 0.2s; }
+  .skill-card:hover { border-color:var(--accent); transform:translateY(-2px); }
+  .skill-card-icon { width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:17px; margin-bottom:0.85rem; }
+  .skill-card h3 { font-family:'Syne',sans-serif; font-size:0.95rem; font-weight:700; margin-bottom:0.65rem; color:var(--text); }
+  .skill-tags { display:flex; flex-wrap:wrap; gap:0.45rem; }
+  .skill-tag { background:rgba(124,111,247,0.1); color:var(--accent); font-size:0.73rem; font-weight:500; padding:0.28rem 0.7rem; border-radius:100px; border:1px solid rgba(124,111,247,0.2); }
+  .tag-teal { color:var(--accent3) !important; border-color:rgba(34,211,238,0.3) !important; background:rgba(34,211,238,0.08) !important; }
+  .tag-green { color:var(--green) !important; border-color:rgba(74,222,128,0.3) !important; background:rgba(74,222,128,0.08) !important; }
+  .tag-amber { color:var(--amber) !important; border-color:rgba(251,191,36,0.3) !important; background:rgba(251,191,36,0.08) !important; }
+
+  .projects-grid { display:grid; gap:1.75rem; }
+  .project-card { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:2rem 2.25rem; position:relative; overflow:hidden; transition:border-color 0.2s; }
+  .project-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--accent),var(--accent3)); }
+  .project-card.featured { border-color:rgba(245,158,11,0.3); }
+  .project-card.featured::before { background:linear-gradient(90deg,var(--gold),var(--accent3)); }
+  .project-card:hover { border-color:rgba(124,111,247,0.4); }
+  .project-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem; flex-wrap:wrap; gap:0.75rem; }
+  .project-name { font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:700; color:var(--text); }
+  .badge-row { display:flex; gap:0.5rem; flex-wrap:wrap; }
+  .project-badge { background:rgba(34,211,238,0.1); color:var(--accent3); font-size:0.7rem; font-weight:500; padding:0.28rem 0.85rem; border-radius:100px; border:1px solid rgba(34,211,238,0.25); white-space:nowrap; }
+  .badge-paper { background:rgba(245,158,11,0.1); color:var(--gold); font-size:0.7rem; font-weight:600; padding:0.28rem 0.85rem; border-radius:100px; border:1px solid rgba(245,158,11,0.35); }
+  .paper-ref { background:rgba(245,158,11,0.06); border:1px solid rgba(245,158,11,0.2); border-radius:10px; padding:0.9rem 1.1rem; margin:1rem 0 0.5rem; display:flex; gap:1rem; align-items:flex-start; }
+  .paper-ref-icon { font-size:18px; flex-shrink:0; }
+  .paper-ref-label { font-size:0.65rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold); font-weight:600; margin-bottom:0.2rem; }
+  .paper-ref-title { font-size:0.82rem; color:var(--text); font-weight:500; line-height:1.4; }
+  .paper-ref-meta { font-size:0.72rem; color:var(--muted); margin-top:0.2rem; }
+  .project-meta-row { display:flex; gap:1.5rem; margin-bottom:0.75rem; flex-wrap:wrap; }
+  .project-meta-item { display:flex; flex-direction:column; gap:0.12rem; }
+  .project-meta-label { font-size:0.67rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); }
+  .project-meta-value { font-size:0.83rem; color:var(--text); font-weight:500; }
+  .project-section-label { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); font-weight:500; margin:0.85rem 0 0.35rem; }
+  .project-text { font-size:0.88rem; color:var(--muted); line-height:1.7; }
+  .project-tech-stack { display:flex; flex-wrap:wrap; gap:0.45rem; margin-top:0.4rem; }
+  .tech-pill { background:var(--bg3); color:var(--text); font-size:0.76rem; font-weight:500; padding:0.28rem 0.8rem; border-radius:6px; border:1px solid var(--border); }
+  .project-outcomes { margin-top:0.4rem; display:flex; flex-direction:column; gap:0.28rem; }
+  .outcome-item { display:flex; align-items:flex-start; gap:0.6rem; font-size:0.86rem; color:var(--muted); }
+  .outcome-dot { width:6px; height:6px; min-width:6px; background:var(--green); border-radius:50%; margin-top:0.5rem; }
+  .github-link { display:inline-flex; align-items:center; gap:0.4rem; margin-top:1rem; font-size:0.8rem; color:var(--accent); text-decoration:none; border:1px solid rgba(124,111,247,0.25); padding:0.3rem 0.9rem; border-radius:100px; transition:background 0.2s; }
+  .github-link:hover { background:rgba(124,111,247,0.1); }
+
+  .exp-item { display:flex; gap:2rem; }
+  .exp-item+.exp-item { margin-top:2rem; }
+  .exp-line { display:flex; flex-direction:column; align-items:center; min-width:24px; }
+  .exp-dot { width:12px; height:12px; border-radius:50%; background:var(--accent); border:2px solid var(--bg); box-shadow:0 0 0 3px rgba(124,111,247,0.2); flex-shrink:0; margin-top:0.35rem; }
+  .exp-connector { width:1px; background:var(--border); flex:1; margin-top:6px; }
+  .exp-item:last-child .exp-connector { display:none; }
+  .exp-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.5rem; flex:1; margin-bottom:2rem; }
+  .exp-role { font-family:'Syne',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:0.2rem; }
+  .exp-org { font-size:0.87rem; color:var(--accent); font-weight:500; }
+  .exp-period { font-size:0.76rem; color:var(--muted); margin-top:0.12rem; }
+  .exp-desc { font-size:0.86rem; color:var(--muted); margin-top:0.65rem; line-height:1.7; }
+
+  .edu-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+  .edu-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:1.6rem; border-top:3px solid var(--accent); }
+  .edu-degree { font-family:'Syne',sans-serif; font-size:1rem; font-weight:700; margin-bottom:0.25rem; }
+  .edu-uni { font-size:0.86rem; color:var(--accent3); font-weight:500; margin-bottom:0.65rem; }
+  .edu-meta { display:flex; gap:0.85rem; align-items:center; }
+  .edu-pill { background:rgba(74,222,128,0.08); color:var(--green); font-size:0.73rem; font-weight:600; padding:0.28rem 0.8rem; border-radius:100px; border:1px solid rgba(74,222,128,0.2); }
+  .edu-year { font-size:0.76rem; color:var(--muted); }
+
+  .research-card { background:linear-gradient(135deg,rgba(245,158,11,0.06),rgba(124,111,247,0.06)); border:1px solid rgba(245,158,11,0.3); border-radius:16px; padding:2rem; display:flex; gap:1.5rem; align-items:flex-start; margin-bottom:2rem; }
+  .research-medal { font-size:48px; flex-shrink:0; }
+  .research-label { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--gold); font-weight:600; margin-bottom:0.5rem; }
+  .research-title { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; color:var(--text); margin-bottom:0.4rem; line-height:1.3; }
+  .research-conf { font-size:0.88rem; color:var(--muted); margin-bottom:0.5rem; }
+  .research-pills { display:flex; gap:0.5rem; flex-wrap:wrap; }
+  .r-pill { font-size:0.72rem; font-weight:500; padding:0.25rem 0.8rem; border-radius:100px; }
+  .r-pill-gold { background:rgba(245,158,11,0.1); color:var(--gold); border:1px solid rgba(245,158,11,0.3); }
+  .r-pill-blue { background:rgba(34,211,238,0.08); color:var(--accent3); border:1px solid rgba(34,211,238,0.25); }
+
+  .certs-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1rem; }
+  .cert-card { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:1.15rem; display:flex; gap:0.9rem; align-items:flex-start; transition:border-color 0.2s; }
+  .cert-card:hover { border-color:var(--accent); }
+  .cert-icon { width:34px; height:34px; border-radius:8px; background:rgba(124,111,247,0.12); display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0; }
+  .cert-name { font-size:0.83rem; font-weight:500; color:var(--text); margin-bottom:0.18rem; }
+  .cert-issuer { font-size:0.72rem; color:var(--muted); }
+
+  /* MORE PROJECTS SECTION */
+  .more-projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; }
+  .mini-project-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.25rem; transition:border-color 0.2s,transform 0.2s; }
+  .mini-project-card:hover { border-color:var(--accent); transform:translateY(-2px); }
+  .mini-project-name { font-family:'Syne',sans-serif; font-size:0.95rem; font-weight:700; color:var(--text); margin-bottom:0.4rem; }
+  .mini-project-desc { font-size:0.8rem; color:var(--muted); line-height:1.6; margin-bottom:0.75rem; }
+  .mini-project-link { font-size:0.75rem; color:var(--accent); text-decoration:none; }
+  .mini-project-link:hover { text-decoration:underline; }
+
+  .contact-section { background:var(--surface); border-radius:20px; border:1px solid var(--border); padding:3.5rem; text-align:center; position:relative; overflow:hidden; max-width:800px; margin:0 auto; }
+  .contact-section::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 0%,rgba(124,111,247,0.08) 0%,transparent 60%); pointer-events:none; }
+  .contact-links { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:2rem; }
+  .contact-link { display:inline-flex; align-items:center; gap:0.6rem; background:var(--bg3); border:1px solid var(--border); color:var(--text); text-decoration:none; font-size:0.86rem; font-weight:500; padding:0.75rem 1.4rem; border-radius:10px; transition:border-color 0.2s,color 0.2s; }
+  .contact-link:hover { border-color:var(--accent); color:var(--accent); }
+
+  footer { text-align:center; padding:2rem; border-top:1px solid var(--border); font-size:0.78rem; color:var(--muted); }
+
+  @media(max-width:768px){
+    nav { padding:1rem 1.25rem; }
+    .nav-links { display:none; }
+    .hero, section { padding-left:1.25rem; padding-right:1.25rem; }
+    .about-grid, .edu-grid { grid-template-columns:1fr; }
+    .hero-stats { gap:1.5rem; }
+    .research-card { flex-direction:column; gap:1rem; }
+    .paper-banner { flex-direction:column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">ESHA DILLIKAR</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Open to AI/ML &amp; Software Roles · 2026</div>
+  <h1 class="hero-name">Esha<br><span>Dillikar</span></h1>
+  <p class="hero-tagline">Building machines that <strong>think</strong>, systems that <strong>scale</strong>.</p>
+  <p class="hero-sub">MCA candidate at PES University · AI/ML Engineer · Published researcher in deep learning. Hands-on with LLMs, RNN/LSTM, NLP, and full-stack. Industry-ready from day one.</p>
+  <div class="hero-btns">
+    <a href="mailto:eshadillikar@gmail.com" class="btn-primary">✉ Hire Me</a>
+    <a href="https://github.com/Esha-21" class="btn-ghost" target="_blank">↗ GitHub</a>
+    <a href="https://www.linkedin.com/in/esha-dillikar-b328a9350/" class="btn-ghost" target="_blank">in LinkedIn</a>
+  </div>
+  <div class="paper-banner">
+    <div class="paper-banner-icon">🏆</div>
+    <div>
+      <div class="paper-banner-label">Published Research · ICAAICS 2026</div>
+      <div class="paper-banner-title">"TYPOPDF: Typed-To-Handwritten Document Generation Using RNN–LSTM Based Sequence Modeling"</div>
+      <div class="paper-banner-meta">International Conference on AI &amp; Computer Science · Bangalore · Mar 2026 · Paper ID: IE-AICS-BGLR-250326-10698</div>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item"><span class="stat-num">1<span>×</span></span><span class="stat-label">Published Paper</span></div>
+    <div class="stat-item"><span class="stat-num">7<span>+</span></span><span class="stat-label">GitHub Repos</span></div>
+    <div class="stat-item"><span class="stat-num">8.78</span><span class="stat-label">BCA CGPA</span></div>
+    <div class="stat-item"><span class="stat-num">2<span>×</span></span><span class="stat-label">AI Internships</span></div>
+  </div>
+</div>
+
+<div class="full-divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-eyebrow">Who I am</p>
+  <h2 class="section-title">Fresher. Published.<br>Fully Industry-Ready.</h2>
+  <div class="about-grid">
+    <div class="about-bio">
+      <p>I'm <strong>Esha Dillikar</strong>, an MCA student at PES University with a passion for building AI systems that solve real problems. My skills span Python, deep learning, NLP, and full-stack development — built through real internships and shipped projects.</p>
+      <p>In March 2026, I presented my research paper on AI-based handwriting synthesis at an <strong>international IEEE-indexed conference in Bangalore</strong> — making me not just a student, but a published AI researcher.</p>
+      <p>I've built RAG pipelines, generative deep learning models, real-time video platforms, network scanners, and more — all live on GitHub. I don't just learn tools — I build with them.</p>
+    </div>
+    <div class="about-highlights">
+      <div class="highlight-item">
+        <h4>Research Published</h4>
+        <p>Presented at ICAAICS 2026. Paper ID: IE-AICS-BGLR-250326-10698. Crossref indexed.</p>
+      </div>
+      <div class="highlight-item">
+        <h4>What I Bring</h4>
+        <p>Fresh perspective + research credibility + 7+ GitHub projects + real internship exposure.</p>
+      </div>
+      <div class="highlight-item">
+        <h4>Learning Style</h4>
+        <p>Project-first. I learn by building, breaking, and shipping — backed by strong academic fundamentals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-eyebrow">Technical Arsenal</p>
+  <h2 class="section-title">Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-card-icon" style="background:rgba(124,111,247,0.12);">🧠</div>
+      <h3>AI / Machine Learning</h3>
+      <div class="skill-tags"><span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">BERT</span><span class="skill-tag">FAISS</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon" style="background:rgba(34,211,238,0.1);">💬</div>
+      <h3>NLP &amp; LLMs</h3>
+      <div class="skill-tags"><span class="skill-tag tag-teal">RAG Pipelines</span><span class="skill-tag tag-teal">LLMs</span><span class="skill-tag tag-teal">Text Embeddings</span><span class="skill-tag tag-teal">Moondream</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon" style="background:rgba(74,222,128,0.1);">⚙️</div>
+      <h3>Programming</h3>
+      <div class="skill-tags"><span class="skill-tag tag-green">Python</span><span class="skill-tag tag-green">C++</span><span class="skill-tag tag-green">SQL</span><span class="skill-tag tag-green">Flask</span><span class="skill-tag tag-green">REST APIs</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon" style="background:rgba(251,191,36,0.1);">🛢️</div>
+      <h3>Data &amp; Big Data</h3>
+      <div class="skill-tags"><span class="skill-tag tag-amber">Numpy</span><span class="skill-tag tag-amber">Pandas</span><span class="skill-tag tag-amber">Kafka</span><span class="skill-tag tag-amber">PySpark</span><span class="skill-tag tag-amber">MongoDB</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon" style="background:rgba(168,85,247,0.1);">🔧</div>
+      <h3>Tools &amp; Infra</h3>
+      <div class="skill-tags"><span class="skill-tag">Git &amp; GitHub</span><span class="skill-tag">Streamlit</span><span class="skill-tag">WebRTC</span><span class="skill-tag">Flink</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon" style="background:rgba(34,211,238,0.08);">🧩</div>
+      <h3>Deep Learning</h3>
+      <div class="skill-tags"><span class="skill-tag tag-teal">RNN/LSTM</span><span class="skill-tag tag-teal">Transformers</span><span class="skill-tag tag-teal">Vector Search</span><span class="skill-tag tag-teal">Multimodal</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-eyebrow">What I've Built</p>
+  <h2 class="section-title">Featured Projects</h2>
+  <div class="projects-grid">
+
+    <div class="project-card featured">
+      <div class="project-header">
+        <span class="project-name">TypoPDF – Text to Handwriting AI</span>
+        <div class="badge-row">
+          <span class="badge-paper">🏆 Research Published</span>
+          <span class="project-badge">RNN/LSTM · Generative AI</span>
+        </div>
+      </div>
+      <div class="paper-ref">
+        <div class="paper-ref-icon">🏆</div>
+        <div>
+          <div class="paper-ref-label">Published Research Paper · ICAAICS 2026</div>
+          <div class="paper-ref-title">"TYPOPDF: Typed-To-Handwritten Document Generation Using RNN–LSTM Based Sequence Modeling"</div>
+          <div class="paper-ref-meta">International Conference on AI &amp; CS · Bangalore · 22–23 Mar 2026 · Paper ID: IE-AICS-BGLR-250326-10698</div>
+        </div>
+      </div>
+      <p class="project-section-label">Overview</p>
+      <p class="project-text">Developed an AI system that converts typed text into realistic handwritten-style output using RNN/LSTM sequence models and pre-trained handwriting synthesis techniques. Research validated at an international conference.</p>
+      <p class="project-section-label">Tech Stack</p>
+      <div class="project-tech-stack"><span class="tech-pill">Python</span><span class="tech-pill">PyTorch</span><span class="tech-pill">RNN/LSTM</span><span class="tech-pill">Transformers</span><span class="tech-pill">Flask</span><span class="tech-pill">HTML/CSS</span></div>
+      <p class="project-section-label">Key Outcomes</p>
+      <div class="project-outcomes">
+        <div class="outcome-item"><div class="outcome-dot"></div><span>Presented at an international AI conference — peer reviewed and accepted</span></div>
+        <div class="outcome-item"><div class="outcome-dot"></div><span>Generative model producing stroke-level realistic handwriting from typed input</span></div>
+        <div class="outcome-item"><div class="outcome-dot"></div><span>Web interface for real-time text-to-handwriting rendering via Flask</span></div>
+      </div>
+      <a class="github-link" href="https://github.com/Esha-21" target="_blank">↗ View on GitHub</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-name">RAG Chatbot with FAISS &amp; Moondream</span>
+        <div class="badge-row"><span class="project-badge">LLM + Retrieval</span></div>
+      </div>
+      <div class="project-meta-row">
+        <div class="project-meta-item"><span class="project-meta-label">Problem</span><span class="project-meta-value">Large PDFs are unsearchable</span></div>
+        <div class="project-meta-item"><span class="project-meta-label">Approach</span><span class="project-meta-value">Retrieval-Augmented Generation</span></div>
+      </div>
+      <p class="project-section-label">Overview</p>
+      <p class="project-text">Built a Q&amp;A chatbot that ingests PDFs, chunks semantically, embeds using dense vectors, and retrieves the most relevant context before answering — grounded, accurate, zero hallucinations.</p>
+      <p class="project-section-label">Tech Stack</p>
+      <div class="project-tech-stack"><span class="tech-pill">Python</span><span class="tech-pill">FAISS</span><span class="tech-pill">Moondream</span><span class="tech-pill">Streamlit</span><span class="tech-pill">LLM API</span></div>
+      <div class="project-outcomes" style="margin-top:0.75rem;">
+        <div class="outcome-item"><div class="outcome-dot"></div><span>Sub-second similarity search over large documents via FAISS vector indexing</span></div>
+        <div class="outcome-item"><div class="outcome-dot"></div><span>Multimodal retrieval with Moondream vision model integration</span></div>
+      </div>
+      <a class="github-link" href="https://github.com/Esha-21/RAG-Chatbot-with-FAISS-and-Moondream" target="_blank">↗ View on GitHub</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-name">Multimodal Semantic Retrieval</span>
+        <div class="badge-row"><span class="project-badge">Multimodal AI</span></div>
+      </div>
+      <p class="project-section-label">Overview</p>
+      <p class="project-text">Built a semantic retrieval system that works across modalities — text, image, and more — using dense embeddings and vector similarity search for intelligent cross-modal querying.</p>
+      <p class="project-section-label">Tech Stack</p>
+      <div class="project-tech-stack"><span class="tech-pill">Python</span><span class="tech-pill">Embeddings</span><span class="tech-pill">Vector Search</span><span class="tech-pill">Deep Learning</span></div>
+      <a class="github-link" href="https://github.com/Esha-21/Multimodal-Semantic-Retrieval" target="_blank">↗ View on GitHub</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-name">AI Meeting Summarizer &amp; Video Platform</span>
+        <div class="badge-row"><span class="project-badge">WebRTC · NLP</span></div>
+      </div>
+      <p class="project-section-label">Overview</p>
+      <p class="project-text">Full-stack real-time video conferencing with an embedded AI module that automatically extracts key decisions and action items — no post-meeting notes needed.</p>
+      <p class="project-section-label">Tech Stack</p>
+      <div class="project-tech-stack"><span class="tech-pill">WebRTC</span><span class="tech-pill">NLP</span><span class="tech-pill">JavaScript</span><span class="tech-pill">Responsive UI</span></div>
+      <div class="project-outcomes" style="margin-top:0.75rem;">
+        <div class="outcome-item"><div class="outcome-dot"></div><span>P2P video with WebRTC and client-side recording</span></div>
+        <div class="outcome-item"><div class="outcome-dot"></div><span>AI module extracts key points and action items post-meeting</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- More GitHub Projects -->
+  <h3 style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin:2.5rem 0 1rem;color:var(--text);">More on GitHub</h3>
+  <div class="more-projects-grid">
+    <div class="mini-project-card">
+      <div class="mini-project-name">Network Port Scanner</div>
+      <div class="mini-project-desc">Python-based network port scanner for host discovery and service detection.</div>
+      <a class="mini-project-link" href="https://github.com/Esha-21/Network-Port-Scanner" target="_blank">↗ github.com/Esha-21</a>
+    </div>
+    <div class="mini-project-card">
+      <div class="mini-project-name">Network Scanner with GUI</div>
+      <div class="mini-project-desc">Enhanced network scanner with a graphical user interface for intuitive operation.</div>
+      <a class="mini-project-link" href="https://github.com/Esha-21/Network-Port-Scanner-with-GUI" target="_blank">↗ github.com/Esha-21</a>
+    </div>
+    <div class="mini-project-card">
+      <div class="mini-project-name">Task Manager Full Stack</div>
+      <div class="mini-project-desc">Full-stack task management application with CRUD operations and responsive design.</div>
+      <a class="mini-project-link" href="https://github.com/Esha-21/Task-Manager-full-stack" target="_blank">↗ github.com/Esha-21</a>
+    </div>
+    <div class="mini-project-card">
+      <div class="mini-project-name">Movie Recommender</div>
+      <div class="mini-project-desc">ML-powered movie recommendation engine using collaborative filtering techniques.</div>
+      <a class="mini-project-link" href="https://github.com/Esha-21/movie-recommender" target="_blank">↗ github.com/Esha-21</a>
+    </div>
+    <div class="mini-project-card">
+      <div class="mini-project-name">Sorting Visualization</div>
+      <div class="mini-project-desc">Interactive visualizer for sorting algorithms — great for understanding DSA concepts.</div>
+      <a class="mini-project-link" href="https://github.com/Esha-21/Sorting-Visualization" target="_blank">↗ github.com/Esha-21</a>
+    </div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="section-eyebrow">Work Experience</p>
+  <h2 class="section-title">Internships</h2>
+  <div>
+    <div class="exp-item">
+      <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
+      <div class="exp-card">
+        <div class="exp-role">AI Intern</div>
+        <div class="exp-org">Sumeru Digital Solutions, Bengaluru</div>
+        <div class="exp-period">Recent · Bengaluru, India</div>
+        <div class="exp-desc">Applied AI/ML skills to industry-grade product problems in a professional software environment, gaining real-world exposure to the full AI development lifecycle.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
+      <div class="exp-card">
+        <div class="exp-role">AI/ML Intern</div>
+        <div class="exp-org">Edunet Foundation – IBM SkillsBuild (AICTE)</div>
+        <div class="exp-period">6 Weeks · Remote</div>
+        <div class="exp-desc">Completed structured 6-week AI/ML internship with hands-on Python projects covering model training, evaluation, and deployment under IBM SkillsBuild's curriculum.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <p class="section-eyebrow">Academic Background</p>
+  <h2 class="section-title">Education</h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-degree">Master of Computer Applications (MCA)</div>
+      <div class="edu-uni">PES University, Bengaluru</div>
+      <div class="edu-meta"><span class="edu-pill">CGPA: 8.13</span><span class="edu-year">2024 – 2026</span></div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+      <div class="edu-uni">Gulbarga University</div>
+      <div class="edu-meta"><span class="edu-pill">CGPA: 8.78</span><span class="edu-year">2021 – 2024</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <p class="section-eyebrow">Achievements &amp; Credentials</p>
+  <h2 class="section-title">Recognition</h2>
+  <div class="research-card">
+    <div class="research-medal">🏆</div>
+    <div>
+      <div class="research-label">International Conference · Research Publication · 2026</div>
+      <div class="research-title">"TYPOPDF: Typed-To-Handwritten Document Generation Using RNN–LSTM Based Sequence Modeling"</div>
+      <div class="research-conf">Presented at ICAAICS (International Conference on Advances in AI &amp; Computer Science) · Bangalore, India · 22–23 March 2026 · Organized by Industrial Electronics &amp; Electrical Engineers Forum · Indexed via Crossref &amp; DOI</div>
+      <div class="research-pills">
+        <span class="r-pill r-pill-gold">Paper ID: IE-AICS-BGLR-250326-10698</span>
+        <span class="r-pill r-pill-blue">Peer Reviewed</span>
+        <span class="r-pill r-pill-blue">Crossref Indexed</span>
+      </div>
+    </div>
+  </div>
+  <div class="certs-grid">
+    <div class="cert-card"><div class="cert-icon">🏅</div><div><div class="cert-name">AI Fundamentals</div><div class="cert-issuer">IBM SkillsBuild</div></div></div>
+    <div class="cert-card"><div class="cert-icon">☁️</div><div><div class="cert-name">Intro to Generative AI</div><div class="cert-issuer">Google Cloud</div></div></div>
+    <div class="cert-card"><div class="cert-icon">📊</div><div><div class="cert-name">Data Analytics Simulation</div><div class="cert-issuer">Deloitte</div></div></div>
+    <div class="cert-card"><div class="cert-icon">💻</div><div><div class="cert-name">Technology Job Simulation</div><div class="cert-issuer">Deloitte</div></div></div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-section">
+    <p class="section-eyebrow" style="text-align:center;">Let's Build Together</p>
+    <h2 class="section-title" style="text-align:center;">Get In Touch</h2>
+    <p style="color:var(--muted);font-size:0.92rem;max-width:400px;margin:0 auto;line-height:1.7;">Open to full-time roles, internships, and collaborations in AI/ML and software development.</p>
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:eshadillikar@gmail.com">✉ eshadillikar@gmail.com</a>
+      <a class="contact-link" href="https://www.linkedin.com/in/esha-dillikar-b328a9350/" target="_blank">in LinkedIn</a>
+      <a class="contact-link" href="https://github.com/Esha-21" target="_blank">⌥ GitHub</a>
+      <a class="contact-link" href="tel:+919113683499">☎ +91-9113683499</a>
+    </div>
+  </div>
+</section>
+
+<footer><p>Built by Esha Dillikar · Published AI Researcher · 2026</p></footer>
+</body>
+</html>
